@@ -1,0 +1,10 @@
+.input{
+  width: 700px;
+  height: 300px;
+}
+
+.userRatingChart{
+   width:600px;
+   height: 100px;
+   max-width: 600px;
+}
