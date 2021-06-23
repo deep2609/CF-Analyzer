@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CF-Visualizer</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="css\stylesIndex.css"> -->
+  <link href="css\stylesIndex.css" rel="stylesheet">
+
+  <!-- Animation Files  -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Pacifico&family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
+
+  <!-- Fonts Awesome Path -->
+  <script src="https://kit.fontawesome.com/6ff6c73007.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/Favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/Favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/Favicon/site.webmanifest">
+
+  <!-- Chart.js Scripts  -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- <script>
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  ...
+</script> -->
+
+</head>
+<body>
+
+    <!-- NavBar Section  -->
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand brand-logo"><img src="assets\images\logo.png" alt="icon-img" class="icon">
+        CF-Visualizer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav navbar nav-custom ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item">Vaccine Availability</a>
+              <a class="dropdown-item">Vaccine Info</a>
+              <a class="dropdown-item" href="">Vaccine Schedule</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <div class="form">
+        <div class="form-text">
+            <img src="assets\images\logo.png" alt="logo" style="height:100px;width:100px;">
+            <h4>CF Visualizer</h4>
+        </div>
+        <div>
+            <h5 style="color: grey;">Get a visual representation of your progress!!</h5>
+        </div>
+
+        <!-- Form  -->
+        <div class="form-data">
+            <!-- <form action="/subscribe" method="post"> -->
+                <div class="container">
+                    <div id="selectByState">
+                      <form class="">
+
+
+                        <input type="text" name="userName" class="form-control" id="cfId" placeholder="Codeforces Handle*" required>
+                        <button id="resultButton" type="button" class="btn btn-lg btn-dark btn-block getnotified">Get Result!!</button>
+
+                      </form>
+
+                    </div>
+                </div>
+            <!-- </form> -->
+        </div>
+        <div class="info-text">
+          <div></div>
+          <div></div>
+        </div>
+
+    </div>
+
+    <div class="results">
+      <div id="userDetails">
+        <h1 data-aos='fade-right' class="section-heading">Profile</h1>
+        <div id="userProfile" class="row">
+
+        </div>
+
+      </div>
+      <div class="row ratingAndProblemChart">
+        <div class="col-6">
+          <div id="userRatingChart">
+            <!-- <canvas id="myChart" width="200" height="100"></canvas> -->
+          </div>
+        </div>
+        <div class="col-6">
+          <div id="userProblemChart">
+            <!-- <canvas id="myChart" width="200" height="100"></canvas> -->
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div id="levels">
+
+      </div>
+
+      <div id="myPieChart">
+
+      </div>
+      </div>
+    </div>
+    <!-- Footer  -->
+
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright: <a class="text-dark" href="/">CF Visualizer</a> with ❤ by Souradip
+      </div>
+    </footer>
+    <!-- JavaScript Files -->
+   <script src="js\scriptIndex.js"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script src="js\animation.js"></script>
+
+</body>
+
+</html>
