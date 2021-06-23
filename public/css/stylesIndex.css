@@ -1,0 +1,163 @@
+body {
+    padding-top: 73px;
+    background-color: #F0D9E7;
+}
+
+.icon {
+    width: 7%;
+    height: 7%;
+}
+
+.brand-logo {
+    font-family: 'Pacifico', cursive;
+    padding-left: 25px;
+    font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 767px){
+  .navbar-brand{
+    width: 302px;
+    padding-left: 3px;
+    margin-right:0;
+  }
+}
+
+.form {
+    padding: 3% 10%;
+    background-color: #DBE6FD;
+    height: 595px;
+    text-align: center;
+}
+
+.form-text {
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 2px 2px 2px rgba(186, 186, 186, 1);
+    color: grey;
+    padding: 1% 40% 1%;
+}
+
+.form-data {
+    padding: 5% 30% 2%;
+}
+
+select,
+input {
+    margin-bottom: 12px;
+}
+
+.getnotified {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.update-details {
+    padding-top: 15px;
+    color: rgb(104, 103, 103);
+    font-size: 0.9rem;
+}
+
+.info-text {
+    padding: 3% 0%;
+    font-size: 0.9rem;
+    color: rgb(104, 103, 103);
+}
+
+/* Vaccination Image  */
+
+.vaccine-img {
+    position: relative;
+    z-index: 1;
+    width: 350px;
+}
+
+.query {
+    height: 350px;
+    text-align: center;
+    padding: 10% 35%;
+    font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 1100px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .form-data {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    .vaccine-img {
+        padding-top: 10%;
+    }
+
+    .query {
+        height: auto;
+        text-align: center;
+        padding: 15% 25% 10%;
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 777px) {
+    body {
+        padding-top: 100px;
+    }
+
+    .form-data {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    .vaccine-img {
+        padding-top: 10%;
+    }
+
+    .query {
+        height: auto;
+        text-align: center;
+        padding: 15% 25% 10%;
+        font-size: 0.9rem;
+    }
+}
+.section-heading {
+  border-left: 10px solid #B6C9F0;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+#userDetails{
+
+  height: 700px;
+  padding-left: 90px;
+  padding-top: 30px;
+  padding-right: 90px;
+  padding-bottom: 30px;
+  background-color: #EFEFEF;
+}
+#userProfile{
+   padding-left: 30px;
+   padding-top: 25px;
+   padding-bottom: 60px;
+   background-color: #94D0CC;
+   box-shadow: 10px 10px 10px #3D84B8;
+}
+
+.userRatingChart{
+  padding-top: 60px;
+}
+
+.ratingAndProblemChart{
+   margin-left: 30px;
+   margin-right: 50px;
+   margin-bottom: 30px;
+}
+
+#myPieChart{
+  width: 1000px;
+  height: 800px;
+  margin-left: 270px;
+  margin-right: 50px;
+  margin-bottom: 30px;
+  border: 3px solid black;
+}
