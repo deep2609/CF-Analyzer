@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Pacifico&family=Ubuntu&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
   <!-- Fonts Awesome Path -->
   <script src="https://kit.fontawesome.com/6ff6c73007.js" crossorigin="anonymous"></script>
@@ -38,94 +39,108 @@
   <!-- Chart.js Scripts  -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
 
-<script src="https://www.gstatic.com/charts/loader.js"></script>
-<!-- <script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- <script>
   google.charts.load('current', {packages: ['corechart']});
   google.charts.setOnLoadCallback(drawChart);
   ...
 </script> -->
 
 </head>
+
 <body>
 
-    <!-- NavBar Section  -->
+  <!-- NavBar Section  -->
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand brand-logo"><img src="assets\images\logo.png" alt="icon-img" class="icon">
-        CF-Visualizer</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav navbar nav-custom ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item">Vaccine Availability</a>
-              <a class="dropdown-item">Vaccine Info</a>
-              <a class="dropdown-item" href="">Vaccine Schedule</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">Contact Us</a>
-          </li>
-        </ul>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand brand-logo"><img src="assets\images\logo.png" alt="icon-img" class="icon">
+      CF-Visualizer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav navbar nav-custom ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item">Vaccine Availability</a>
+            <a class="dropdown-item">Vaccine Info</a>
+            <a class="dropdown-item" href="">Vaccine Schedule</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="form">
+    <div class="form-text">
+      <img src="assets\images\logo.png" alt="logo" style="height:100px;width:100px;">
+      <h4>CF Visualizer</h4>
+    </div>
+    <div>
+      <h5 style="color: grey;">Get a visual representation of your progress!!</h5>
+    </div>
+
+    <!-- Form  -->
+    <div class="form-data">
+      <!-- <form action="/subscribe" method="post"> -->
+      <div class="container">
+        <div id="selectByState">
+          <form class="">
+
+
+            <input type="text" name="userName" class="form-control" id="cfId" placeholder="Codeforces Handle*" required>
+            <button id="resultButton" type="button" class="btn btn-lg btn-dark btn-block getnotified">Get Result!!</button>
+
+          </form>
+
+        </div>
       </div>
-    </nav>
+      <!-- </form> -->
+    </div>
+    <div class="info-text">
+      <div></div>
+      <div></div>
+    </div>
+    <img src="assets\images\coder.png" alt="" class="coder-img">
 
+  </div>
 
-    <div class="form">
-        <div class="form-text">
-            <img src="assets\images\logo.png" alt="logo" style="height:100px;width:100px;">
-            <h4>CF Visualizer</h4>
-        </div>
-        <div>
-            <h5 style="color: grey;">Get a visual representation of your progress!!</h5>
-        </div>
+  <div class="results">
 
-        <!-- Form  -->
-        <div class="form-data">
-            <!-- <form action="/subscribe" method="post"> -->
-                <div class="container">
-                    <div id="selectByState">
-                      <form class="">
+    <div id="userDetails">
+      <center><strong>
+          <p class="greetingsTitle">Hello Coder!!!</p>
+        </strong>
 
+      </center>
+      <br>
+      <br>
+      <h1 data-aos='fade-right' class="section-heading">Profile</h1>
+      <div id="userProfile" class="row">
 
-                        <input type="text" name="userName" class="form-control" id="cfId" placeholder="Codeforces Handle*" required>
-                        <button id="resultButton" type="button" class="btn btn-lg btn-dark btn-block getnotified">Get Result!!</button>
-
-                      </form>
-
-                    </div>
-                </div>
-            <!-- </form> -->
-        </div>
-        <div class="info-text">
-          <div></div>
-          <div></div>
-        </div>
+      </div>
 
     </div>
 
-    <div class="results">
-      <div id="userDetails">
-        <h1 data-aos='fade-right' class="section-heading">Profile</h1>
-        <div id="userProfile" class="row">
-
-        </div>
-
-      </div>
+    <div id="userAnalysis" class="">
+      <br>
+      <h1 data-aos='fade-right' class="section-heading analysisHeading">Analysis</h1>
       <div class="row ratingAndProblemChart">
         <div class="col-6">
-          <div id="userRatingChart">
+          <div id="userRatingChart" style="border: 2px solid black;background-color: #CAF7E3;">
             <!-- <canvas id="myChart" width="200" height="100"></canvas> -->
           </div>
         </div>
         <div class="col-6">
-          <div id="userProblemChart">
+          <div id="userProblemChart" style="border: 2px solid black;background-color: #CAF7E3;">
             <!-- <canvas id="myChart" width="200" height="100"></canvas> -->
           </div>
 
@@ -141,19 +156,162 @@
       <div id="myPieChart">
 
       </div>
+
+      <div id="efficiencyChart">
+
+      </div>
+
+      <div class="row efficiencyTable" style="background-color:white;">
+        <div class="col-6 strongTopics">
+          <br>
+          <center>
+            <h3>Strong Topics</h3>
+          </center>
+          <br>
+          <table id='strongTopicsTable' class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th style="background:#66DE93;">Topics</th>
+                <th style="background:#66DE93;">Efficiency</th>
+              </tr>
+
+            </thead>
+            <tbody id='strongBody'>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="col-6 weakTopics">
+          <br>
+          <center>
+            <h3>Weak Topics</h3>
+          </center>
+          <br>
+          <table id='weakTopicsTable' class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th style="background:#EBA83A;">Topics</th>
+                <th style="background:#EBA83A;">Efficiency</th>
+              </tr>
+
+            </thead>
+            <tbody id='weakBody'>
+
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-    <!-- Footer  -->
 
-    <footer class="bg-light text-center text-lg-start">
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2020 Copyright: <a class="text-dark" href="/">CF Visualizer</a> with ❤ by Souradip
+    <div class="PracticeProblems">
+      <br>
+      <span style="margin-top:30px;padding-top:30px;"><h1 data-aos='fade-right' class="section-heading practiceHeading">Practice</h1></span>
+      <div class="">
+        <br>
+        <center>
+          <h2>Random Problem Generator</h2>
+        </center>
+
+        <div id="randomQuestions" class="row text-center">
+
+          <div class="col-6">
+            <br>
+            <h3>Random problem from weak topics</h3>
+            <br>
+            <p>
+              Generates a link to Codeforces problem on topics which you are weak in. The difficulty rating of the problem is [your Rating -100, your Rating + 300];
+            </p>
+            <button id="randomWeakProblemButton"class="btn btn-lg btn-dark getnotified" type="button" name="button">Get Problem!!</button>
+            <br>
+          </div>
+          <div class="col-6">
+            <br>
+            <h3>Random problem</h3>
+
+            <br>
+            <p>
+              Generates a link to Codeforces problem. The difficulty rating of the problem is [your Rating -100, your Rating + 300];
+            </p>
+            <br>
+            <button id="randomProblemButton" class="btn btn-lg btn-dark getnotified" type="button" name="button">Get Problem!!</button>
+            <br>
+          </div>
+
+        </div>
       </div>
-    </footer>
-    <!-- JavaScript Files -->
-   <script src="js\scriptIndex.js"></script>
-   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-   <script src="js\animation.js"></script>
+
+      <div id="unsolvedProblemsContainer">
+        <div id="unsolvedProblems">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="importantLinks">
+      <br>
+       <h1 data-aos='fade-right' class="section-heading practiceHeading">Important Links</h1>
+       <br>
+       <div class="impLinks">
+         <ul>
+           <li><a href="https://cp-algorithms.com/">Theories for Algorithms and DataStructures</a></li>
+           <li><a href="https://cses.fi/problemset/">CSES Problemset</a></li>
+           <li><a href="https://atcoder.jp/contests/dp/tasks">Atcoder dp</a></li>
+           <li><a href="https://www.youtube.com/channel/UCBr_Fu6q9iHYQCh13jmpbrg">Errichto's Videos</a></li>
+           <li><a href="https://codeforces.com/blog/entry/91363">List of Important Blogs</a></li>
+         </ul>
+       </div>
+    </div>
+
+    <section id="profilecard">
+        <div class="profile-container">
+          <h1 data-aos='fade-right' class="section-heading">About</h1>
+
+          <div class="container profile-cards">
+            <div class="row">
+
+              <div class="col-12">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="assets/images/souradip.jpg">
+                  </div>
+                  <div class="team-content">
+                    <h2 class="name">Souradip Mandal</h2>
+                    <h3 class="title">Student at IIT(BHU) Varanasi</h3>
+                    <h3 class="title">Web Developer</h3>
+                    <h3 class="title">Competitve Programmar</h3>
+                  </div>
+                  <ul class="social">
+                    <li><a href="https://in.linkedin.com/in/souradip-mandal-046b08193" class="fa fa-linkedin"></a></li>
+                    <li><a href="https://www.facebook.com/souradip.mandal.75" class="fa fa-facebook"></a></li>
+                    <li><a href="https://github.com/deep2609" class="fa fa-github"></a></li>
+                    <li><a href="https://www.instagram.com/deep_2609/" class="fa fa-instagram"></a></li>
+                    <li><a href="mailto:souradip.mandal.mec19@iitbhu.ac.in" class="fa fa-envelope"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+
+
+
+
+
+
+  </div>
+  <!-- Footer  -->
+
+  <footer class="bg-light text-center text-lg-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright: <a class="text-dark" href="/">CF Visualizer</a> with ❤ by Souradip
+    </div>
+  </footer>
+  <!-- JavaScript Files -->
+  <script src="js\scriptIndex.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js\animation.js"></script>
 
 </body>
 
