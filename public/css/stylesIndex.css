@@ -1,132 +1,132 @@
 body {
-    padding-top: 73px;
-    /* background-color: #f7f5ec; */
+  padding-top: 73px;
+  /* background-color: #f7f5ec; */
 }
 
 .icon {
-    width: 7%;
-    height: 7%;
+  width: 7%;
+  height: 7%;
 }
 
 .brand-logo {
-    font-family: 'Pacifico', cursive;
-    padding-left: 25px;
-    font-size: 1.4rem;
+  font-family: 'Pacifico', cursive;
+  padding-left: 25px;
+  font-size: 1.4rem;
 }
 
-@media only screen and (max-width: 767px){
-  .navbar-brand{
+@media only screen and (max-width: 767px) {
+  .navbar-brand {
     width: 302px;
     padding-left: 3px;
-    margin-right:0;
+    margin-right: 0;
   }
 }
 
 .form {
-    padding: 3% 10%;
-    background-color: #DBE6FD;
-    height: 640px;
-    text-align: center;
+  padding: 3% 10%;
+  background-color: #DBE6FD;
+  height: 640px;
+  text-align: center;
 }
 
 .form-text {
-    font-family: 'Roboto', sans-serif;
-    text-shadow: 2px 2px 2px rgba(186, 186, 186, 1);
-    color: grey;
-    padding: 1% 40% 1%;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 2px 2px rgba(186, 186, 186, 1);
+  color: grey;
+  padding: 1% 40% 1%;
 }
 
 .form-data {
-    padding: 5% 30% 2%;
+  padding: 5% 30% 2%;
 }
 
 select,
 input {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .getnotified {
-    margin-top: 25px;
-    margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 .update-details {
-    padding-top: 15px;
-    color: rgb(104, 103, 103);
-    font-size: 0.9rem;
+  padding-top: 15px;
+  color: rgb(104, 103, 103);
+  font-size: 0.9rem;
 }
 
 .info-text {
-    padding: 3% 0%;
-    font-size: 0.9rem;
-    color: rgb(104, 103, 103);
+  padding: 3% 0%;
+  font-size: 0.9rem;
+  color: rgb(104, 103, 103);
 }
 
 /* Vaccination Image  */
-
 .coder-img {
-    position: relative;
-    z-index: 1;
-    width: 300px;
-    bottom: 20px;
-
+  position: relative;
+  z-index: 1;
+  width: 300px;
+  bottom: 20px;
 }
 
 .query {
-    height: 350px;
-    text-align: center;
-    padding: 10% 35%;
-    font-size: 0.9rem;
+  height: 350px;
+  text-align: center;
+  padding: 10% 35%;
+  font-size: 0.9rem;
 }
 
 @media only screen and (max-width: 1100px) {
-    body {
-        padding-top: 70px;
-    }
+  body {
+    padding-top: 70px;
+  }
 
-    .form-data {
-        padding-left: 0%;
-        padding-right: 0%;
-    }
+  .form-data {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
 
-    .coder-img {
-        padding-top: 10%;
-    }
+  .coder-img {
+    padding-top: 10%;
+  }
 
-    .query {
-        height: auto;
-        text-align: center;
-        padding: 15% 25% 10%;
-        font-size: 0.9rem;
-    }
+  .query {
+    height: auto;
+    text-align: center;
+    padding: 15% 25% 10%;
+    font-size: 0.9rem;
+  }
 }
 
 @media only screen and (max-width: 777px) {
-    body {
-        padding-top: 100px;
-    }
+  body {
+    padding-top: 100px;
+  }
 
-    .form-data {
-        padding-left: 0%;
-        padding-right: 0%;
-    }
+  .form-data {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
 
-    .coder-img {
-        padding-top: 10%;
-    }
+  .coder-img {
+    padding-top: 10%;
+  }
 
-    .query {
-        height: auto;
-        text-align: center;
-        padding: 15% 25% 10%;
-        font-size: 0.9rem;
-    }
+  .query {
+    height: auto;
+    text-align: center;
+    padding: 15% 25% 10%;
+    font-size: 0.9rem;
+  }
 }
-.greetingsTitle{
+
+.greetingsTitle {
   font-family: 'Pacifico', cursive;
   font-size: 3.5rem;
 }
-.impLinks{
+
+.impLinks {
   font-size: 1.5rem;
   margin-left: 70px;
   margin-top: 40px;
@@ -139,39 +139,42 @@ input {
   margin-top: 30px;
   font-weight: 700;
 }
-#userDetails{
 
+#userDetails {
   height: 1000px;
   padding-left: 90px;
   padding-top: 200px;
   padding-right: 90px;
   padding-bottom: 30px;
-
 }
-.analysisHeading{
+
+.analysisHeading {
   margin-left: 90px;
   margin-top: 30px;
   padding-top: 20px;
 }
-.practiceHeading{
+
+.practiceHeading {
   margin-left: 120px;
   margin-top: 30px;
 }
-#userProfile{
-   padding-left: 30px;
-   padding-top: 25px;
-   padding-bottom: 60px;
-   background-color: #CAF7E3;
-   box-shadow: 10px 10px 10px black;
+
+#userProfile {
+  padding-left: 30px;
+  padding-top: 25px;
+  padding-bottom: 60px;
+  background-color: #CAF7E3;
+  box-shadow: 10px 10px 10px black;
 }
-#userAnalysis{
+
+#userAnalysis {
   height: 3500px;
   background-color: #f7f5ec;
   margin-left: 20px;
   margin-right: 20px;
 }
 
-.PracticeProblems{
+.PracticeProblems {
   margin-top: 90px;
   margin-left: 20px;
   margin-right: 20px;
@@ -179,15 +182,15 @@ input {
   height: auto;
 }
 
-#unsolvedProblemsContainer{
+#unsolvedProblemsContainer {
   height: 700px;
   padding-left: 90px;
   padding-top: 100px;
   padding-right: 90px;
   padding-bottom: 30px;
-
 }
-#unsolvedProblems{
+
+#unsolvedProblems {
   font-size: 1.5rem;
   padding-left: 30px;
   padding-top: 25px;
@@ -196,7 +199,7 @@ input {
   box-shadow: 10px 10px 10px black;
 }
 
-.importantLinks{
+.importantLinks {
   height: 600px;
   background-color: #f7f5ec;
   margin-left: 20px;
@@ -204,27 +207,17 @@ input {
   margin-top: 40px;
 }
 
-.userRatingChart{
+.userRatingChart {
   padding-top: 60px;
-
 }
 
-.ratingAndProblemChart{
-   margin-left: 30px;
-   margin-right: 50px;
-   margin-bottom: 30px;
-}
-
-#myPieChart{
-  width: 1100px;
-  height: 900px;
-  margin-left: 250px;
+.ratingAndProblemChart {
+  margin-left: 30px;
   margin-right: 50px;
   margin-bottom: 30px;
-  border: 4px solid black;
-  background-color: #CAF7E3;
 }
-#efficiencyChart{
+
+#myPieChart {
   width: 1100px;
   height: 900px;
   margin-left: 250px;
@@ -234,22 +227,29 @@ input {
   background-color: #CAF7E3;
 }
 
-#randomQuestions{
+#efficiencyChart {
+  width: 1100px;
+  height: 900px;
+  margin-left: 250px;
+  margin-right: 50px;
+  margin-bottom: 30px;
+  border: 4px solid black;
+  background-color: #CAF7E3;
+}
+
+#randomQuestions {
   margin: 50px 50px 50px 50px;
   border: 3px solid black;
   font-size: 1.5rem;
 }
 
-.efficiencyTable{
+.efficiencyTable {
   margin: 50px 50px 50px 50px;
   border: 3px solid black;
   font-size: 1.25rem;
 }
 
-
-
 /* Profile Card Section  */
-
 .profile-container {
   padding: 3% 10% 2%;
 }
@@ -259,7 +259,7 @@ input {
   height: auto;
 }
 
-@media only screen and (max-width: 650px){
+@media only screen and (max-width: 650px) {
   .profile-cards {
     padding: 3% 7% 0%;
     height: auto;
@@ -273,7 +273,7 @@ input {
   text-align: center;
   overflow: hidden;
   position: relative;
-  width:400px;
+  width: 400px;
   height: 470px;
 }
 
