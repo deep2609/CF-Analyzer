@@ -69,6 +69,17 @@ function randomProblemGenerator(solved,userRating){
 
 let resultButton = document.getElementById('resultButton');
 resultButton.addEventListener("click",function(){
+  var userName = $('#cfId').val();
+  let urlUserData = "https://codeforces.com/api/user.info?handles="+userName;
+  let urlUserContests = "https://codeforces.com/api/user.rating?handle="+userName;
+  let urlUserSubmissions = "https://codeforces.com/api/user.status?handle="+userName+"&from=1";
+  fetch(urlUserSubmissions).then(function(response){
+     if(response.status!==200){
+        console.warn('Looks like there was a problem. Status code: '+ response.status);
+        alert("The Codeforces handle doesn't exist!! Please try again!");
+        throw new Error("Something went badly wrong!");
+     }
+
   let correct=0;
   let wrong=0;
   let preferredLanguage="";
@@ -83,16 +94,14 @@ resultButton.addEventListener("click",function(){
   $('#weakBody').empty();
   // let h = "<button id='weakGenerator' type='button' class='btn btn-lg btn-dark btn-block getnotified'>Generate Problem!!</button>";
   // $('#randomWeakQuestions').append(h);
-  var userName = $('#cfId').val();
+
   document.getElementsByClassName('greetingsTitle')[0].innerHTML=("Hello "+userName);
   // let htmlHeading = "";
   // htmlHeading+="<h2>Hello "+userName+"</h2>";
   // $('.greetings').append(htmlHeading);
   // console.log(userName);
   // get();
-   let urlUserData = "https://codeforces.com/api/user.info?handles="+userName;
-   let urlUserContests = "https://codeforces.com/api/user.rating?handle="+userName;
-   let urlUserSubmissions = "https://codeforces.com/api/user.status?handle="+userName+"&from=1";
+
 
    let topicData = new Map();
    let unsolved = new Map();
@@ -103,10 +112,7 @@ resultButton.addEventListener("click",function(){
    let correctSolTopic = new Map();
    let language= new Map();
 
-   fetch(urlUserSubmissions).then(function(response){
-      if(response.status!==200){
-         console.warn('Looks like there was a problem. Status code: '+ response.status);
-      }
+
 
       response.json().then(function(res){
           let len = res.result.length;
@@ -401,11 +407,11 @@ resultButton.addEventListener("click",function(){
                   // html+="<h3 style='color:'"+">"+data.result[0].rank+"</h3>";
                   if(data.result[0].rank==undefined){
                     html+="<h3><img src='https://wp-asset.groww.in/wp-content/uploads/2019/03/18122322/stock-market.jpg' style='height:30px; width:30px;'> Current rating : 0</h3>";
-                    html+="<h3><img src='https://lh3.googleusercontent.com/proxy/DBAMtja6A5NAc41aJSVKMbbH93GwzUUoeKDuZyJBx7H8lARwaGOJwV6mRPphTdmQojJ2n25_Z69gtcw7ipTGuXtuRARaVRkqd20fHIJS1-xHYHBRxAVX0MgEdmm3iQ' style='height:30px; width:30px;'> Max rating : 0 ( unrated) </h3>";
+                    html+="<h3><img src='https://wp-asset.groww.in/wp-content/uploads/2019/03/18122322/stock-market.jpg' style='height:30px; width:30px;'> Max rating : 0 ( unrated) </h3>";
                   }
                   else{
                     html+="<h3><img src='https://wp-asset.groww.in/wp-content/uploads/2019/03/18122322/stock-market.jpg' style='height:30px; width:30px;'> Current rating : "+data.result[0].rating+"</h3>";
-                    html+="<h3><img src='https://lh3.googleusercontent.com/proxy/DBAMtja6A5NAc41aJSVKMbbH93GwzUUoeKDuZyJBx7H8lARwaGOJwV6mRPphTdmQojJ2n25_Z69gtcw7ipTGuXtuRARaVRkqd20fHIJS1-xHYHBRxAVX0MgEdmm3iQ' style='height:30px; width:30px;'> Max rating : "+data.result[0].maxRating+" ("+data.result[0].maxRank+")</h3>";
+                    html+="<h3><img src='https://wp-asset.groww.in/wp-content/uploads/2019/03/18122322/stock-market.jpg' style='height:30px; width:30px;'> Max rating : "+data.result[0].maxRating+" ("+data.result[0].maxRank+")</h3>";
                   }
                   html+="<h3> Friends : "+data.result[0].friendOfCount+"</h3>";
                   html+="<h3> Problems solved : "+solved.size+"</h3>";
