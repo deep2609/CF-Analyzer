@@ -8,19 +8,125 @@ google.charts.setOnLoadCallback(drawChart);
 google.charts.setOnLoadCallback(drawRatingChart);
 google.charts.setOnLoadCallback(drawProblemChart);
 google.charts.setOnLoadCallback(drawEfficiencyChart);
-// let handleColors = new Map();
-// handle.set('legendary grandmaster','red');
-// handle.set('international grandmaster','red');
-// handle.set('grandmaster','red');
-// handle.set('international master','#ff8c00');
-// handle.set('master','#ff8c00');
-// handle.set('candidate master','#a0a');
-// handle.set('expert','blue');
-// handle.set('specialist','#03a89e');
-// handle.set('pupil','green');
-// handle.set('newbie','gray');
 
+
+let flag=0;
 let leastProminent = new Map();
+let topicData = new Map();
+let unsolved = new Map();
+let solved = new Map();
+let ratingSolved = new Map();
+let level = new Map();
+let triesTopic = new Map();
+let correctSolTopic = new Map();
+let language = new Map();
+
+let useData = [];
+let userRatingData = [];
+let userProblemData = [];
+let efficiencyData = [];
+let effData = [];
+
+let userName="";
+
+let widthPieChart = 0;
+let heightPieChart = 0;
+
+let widthBar = 0;
+let heightBar = 0;
+
+if($(window).width()>1200){
+  widthPieChart=1060;
+  heightPieChart=800;
+  widthBar=1025;
+  heightBar=625;
+}
+else if($(window).width()>1000){
+  widthPieChart=860;
+  heightPieChart=700;
+  widthBar=825;
+  heightBar=525;
+}
+else if($(window).width()>800){
+  widthPieChart=625;
+  heightPieChart=520;
+  widthBar=625;
+  heightBar=475;
+}
+else if($(window).width()>600){
+  widthPieChart=380;
+  heightPieChart=350;
+  widthBar=445;
+  heightBar=425;
+}
+else{
+  widthPieChart=240;
+  heightPieChart=270;
+  widthBar=255;
+  heightBar=255;
+
+}
+
+$(window).resize(function(){
+    var w = $(window).width();
+    if(flag===1){
+    if (w > 1200){
+      widthPieChart=1060;
+      heightPieChart=800;
+      widthBar=1025;
+      heightBar=625;
+      drawChart(useData, userName);
+      drawRatingChart(userRatingData, userName);
+      drawProblemChart(userProblemData, userName);
+      drawEfficiencyChart(efficiencyData, userName);
+    }
+    else if(w>1000 && w<1200){
+      widthPieChart=820;
+      heightPieChart=700;
+      widthBar=825;
+      heightBar=525;
+      drawChart(useData, userName);
+      drawRatingChart(userRatingData, userName);
+      drawProblemChart(userProblemData, userName);
+      drawEfficiencyChart(efficiencyData, userName);
+    }
+    else if(w>800 && w<1000){
+      widthPieChart=625;
+      heightPieChart=580;
+      widthBar=625;
+      heightBar=475;
+      drawChart(useData, userName);
+      drawRatingChart(userRatingData, userName);
+      drawProblemChart(userProblemData, userName);
+      drawEfficiencyChart(efficiencyData, userName);
+    }
+    else if(w>600 && w < 800){
+      widthPieChart=380;
+      heightPieChart=350;
+      widthBar=445;
+      heightBar=425;
+      drawChart(useData, userName);
+      drawRatingChart(userRatingData, userName);
+      drawProblemChart(userProblemData, userName);
+      drawEfficiencyChart(efficiencyData, userName);
+    }
+    else if(w<600){
+      widthPieChart=340;
+      heightPieChart=270;
+      widthBar=255;
+      heightBar=255;
+      drawChart(useData, userName);
+      drawRatingChart(userRatingData, userName);
+      drawProblemChart(userProblemData, userName);
+      drawEfficiencyChart(efficiencyData, userName);
+    }
+  }
+
+});
+
+
+
+
 
 function randomProblemGenerator(solved, userRating) {
   // console.log(solved.size);
@@ -71,7 +177,7 @@ function randomProblemGenerator(solved, userRating) {
 
 let resultButton = document.getElementById('resultButton');
 resultButton.addEventListener("click", function() {
-  var userName = $('#cfId').val();
+  userName = $('#cfId').val();
   let urlUserData = "https://codeforces.com/api/user.info?handles=" + userName;
   let urlUserContests = "https://codeforces.com/api/user.rating?handle=" + userName;
   let urlUserSubmissions = "https://codeforces.com/api/user.status?handle=" + userName + "&from=1";
@@ -100,16 +206,17 @@ resultButton.addEventListener("click", function() {
 
 
 
-    let topicData = new Map();
-    let unsolved = new Map();
-    let solved = new Map();
-    let ratingSolved = new Map();
-    let level = new Map();
-    let triesTopic = new Map();
-    let correctSolTopic = new Map();
-    let language = new Map();
 
 
+    topicData.clear();
+    unsolved.clear();
+    solved.clear();
+    ratingSolved.clear();
+    level.clear();
+    triesTopic.clear();
+    correctSolTopic.clear();
+    language.clear();
+    leastProminent.clear();
 
     response.json().then(function(res) {
       let len = res.result.length;
@@ -200,11 +307,13 @@ resultButton.addEventListener("click", function() {
 
         if (i === 0) {
           // console.log(topicData.size);
-          let useData = [];
-          let userRatingData = [];
-          let userProblemData = [];
-          let efficiencyData = [];
-          let effData = [];
+
+
+          useData=[];
+          userRatingData=[];
+          userProblemData=[];
+          efficiencyData=[];
+          effData=[];
 
           let nax = 0;
           for (let [key, value] of language) {
@@ -272,6 +381,7 @@ resultButton.addEventListener("click", function() {
           drawRatingChart(userRatingData, userName);
           drawProblemChart(userProblemData, userName);
           drawEfficiencyChart(efficiencyData, userName);
+          flag=1;
 
 
 
@@ -354,37 +464,37 @@ resultButton.addEventListener("click", function() {
           }
           // html+="<h3>"+data.result[0].handle+"</h3>";
           if (data.result[0].rank == undefined) {
-            html += "<h2>unrated</h2>";
+            html += "<h3>unrated</h3>";
           }
           if (data.result[0].rank === 'newbie') {
-            html += "<h2 style='color:gray;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:gray;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'pupil') {
-            html += "<h2 style='color:green;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:green;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'specialist') {
-            html += "<h2 style='color:#03a89e;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:#03a89e;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'expert') {
-            html += "<h2 style='color:blue;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:blue;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'candidate master') {
-            html += "<h2 style='color:#a0a;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:#a0a;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'master') {
-            html += "<h2 style='color:#ff8c00;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:#ff8c00;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'international master') {
-            html += "<h2 style='color:#ff8c00;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:#ff8c00;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'grandmaster') {
-            html += "<h2 style='color:red;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:red;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'international grandmaster') {
-            html += "<h2 style='color:red;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:red;'>" + data.result[0].rank + "</h3>";
           }
           if (data.result[0].rank === 'legendary grandmaster') {
-            html += "<h2 style='color:red;'>" + data.result[0].rank + "</h2>";
+            html += "<h3 style='color:red;'>" + data.result[0].rank + "</h3>";
           }
 
 
@@ -406,9 +516,9 @@ resultButton.addEventListener("click", function() {
           html += "</div>";
           html += "<div class='col-6'>";
           if (data.result[0].titlePhoto === "https://userpic.codeforces.org/no-title.jpg") {
-            html += "<img src='https://miro.medium.com/max/719/1*TMAo0Qpl4j9TaE3sDyBTLg.jpeg' style='border: 5px solid #21094E; width:300px;height:350px;'>";
+            html += "<img class='profilePic' src='https://st3.depositphotos.com/7662228/14389/v/1600/depositphotos_143890825-stock-illustration-programmer-coder-in-the-workplace.jpg' >";
           } else {
-            html += "<img src='" + data.result[0].titlePhoto + "' style='border: 5px solid #21094E; width:300px;height:350px;'>";
+            html += "<img class='profilePic' src='" + data.result[0].titlePhoto + "'>";
           }
 
           html += "</div>";
@@ -458,8 +568,8 @@ function drawChart(useData, userName) {
   var options = {
     backgroundColor: '#CAF7E3',
     'title': 'Tags of ' + userName,
-    'width': 1060,
-    'height': 800,
+    'width': widthPieChart,
+    'height': heightPieChart,
     pieHole: 0.4
 
   };
@@ -480,8 +590,8 @@ function drawRatingChart(userRatingData, userName) {
 
   var options = {
     title: "Problems solved by " + userName,
-    width: 725,
-    height: 725,
+    width: widthBar,
+    height: heightBar,
     backgroundColor: '#CAF7E3',
     bar: {
       groupWidth: "95%"
@@ -506,8 +616,8 @@ function drawProblemChart(userProblemData, userName) {
 
   var options = {
     title: "Levels of Problems solved by " + userName,
-    width: 725,
-    height: 725,
+    width: widthBar,
+    height: heightBar,
     backgroundColor: '#CAF7E3',
     bars: "vertical",
     bar: {
@@ -533,11 +643,14 @@ function drawEfficiencyChart(useData, userName) {
   var options = {
     backgroundColor: '#CAF7E3',
     'title': 'Efficiency of ' + userName,
-    'width': 1060,
-    'height': 800,
+    'width': widthPieChart,
+    'height': heightPieChart,
     pieHole: 0.4,
   };
   // Instantiate and draw the chart.
   var chart = new google.visualization.PieChart(document.getElementById('efficiencyChart'));
   chart.draw(data, options);
 }
+
+console.log(widthPieChart);
+console.log(heightPieChart);
