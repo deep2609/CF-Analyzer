@@ -11,6 +11,7 @@ google.charts.setOnLoadCallback(drawEfficiencyChart);
 
 
 let flag=0;
+let ok =0;
 let leastProminent = new Map();
 let topicData = new Map();
 let unsolved = new Map();
@@ -129,8 +130,7 @@ $(window).resize(function(){
 
 
 function randomProblemGenerator(solved, userRating) {
-  // console.log(solved.size);
-  // console.log("I'm here!!! 1");
+  
   let url = "https://codeforces.com/api/problemset.problems?";
   console.log(url);
   fetch(url).then(function(response) {
@@ -138,16 +138,16 @@ function randomProblemGenerator(solved, userRating) {
       console.warn('Looks like there was a problem. Status code: ' + response.status);
     }
     response.json().then(function(res) {
-      // console.log("I'm here!!! 2");
+    
       let randomQuestions = [];
       let randomWeakProblems = [];
       let len = res.result.problems.length;
       for (let i = 0; i < len; i++) {
         let contestID = (res.result.problems[i].contestId).toString() + res.result.problems[i].index;
-        // if(solved.has(contestID))continue;
+       
         if (userRating + 300 >= res.result.problems[i].rating && userRating - 100 <= res.result.problems[i].rating && !(solved.has(contestID))) {
           let str = "https://codeforces.com/problemset/problem/" + (res.result.problems[i].contestId).toString() + "/" + res.result.problems[i].index;
-          // console.log(str);
+        
           randomQuestions.push(str);
           for (let j = 0; j < res.result.problems[i].tags.length; j++) {
             if (leastProminent.has(res.result.problems[i].tags[j])) {
@@ -162,9 +162,7 @@ function randomProblemGenerator(solved, userRating) {
 
           let index2 = randomWeakProblems.length - 1;
           let num2 = Math.floor(Math.random() * (index2 - 0 + 1)) + 0;
-          // let html = "<a href='"+randomQuestions[num][0]+"'>Get Problem!!</a>";
-          // console.log(randomQuestions[num]);
-          // document.getElementById("randomWeakProblemButton").innerHTML=html;
+        
           $('#randomWeakProblemButton').wrapInner("<a href='" + randomWeakProblems[num2] + "' style='color:white;background-color: transparent;text-decoration:none;'></a>");
           $('#randomProblemButton').wrapInner("<a href='" + randomQuestions[num] + "' style='color:white;background-color: transparent;text-decoration:none;'></a>");
           console.log("I got here");
